@@ -171,17 +171,15 @@
     align-items:center;
   }
   .hero h1{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(3.1rem,7vw,5.6rem);
-    line-height:1.15;
+    font-family:'Metal Mania','Anton',sans-serif;
+    font-weight:400;
+    font-size:clamp(3.6rem,7.8vw,6.3rem);
+    line-height:1.2;
     letter-spacing:.05em;
     color:var(--bone);
   }
   .hero h1 .silver{color:var(--bone); display:block;}
   .hero h1 .accent{
-    font-family:'Metal Mania','Anton',sans-serif;
-    font-size:1.2em;
-    font-weight:400;
     color:var(--maroon);
     display:block;
     margin-top:.18em;
@@ -673,43 +671,33 @@
   .contact-map{
     position:relative;
     min-height:320px;
-    display:flex; align-items:center; justify-content:center;
     overflow:hidden;
-    background:
-      linear-gradient(rgba(70,2,14,.32), rgba(70,2,14,.32)),
-      repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 40px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 40px),
-      linear-gradient(160deg,var(--void),var(--ink));
+    background:var(--void);
     border-bottom:1px solid var(--steel-line);
   }
   @media (min-width:761px){
     .contact-map{border-bottom:none; border-right:1px solid var(--steel-line);}
   }
-  .contact-map .pin{position:relative; width:56px; height:56px;}
-  .contact-map .pin svg{width:56px; height:56px; color:var(--maroon-3); filter:drop-shadow(0 6px 14px rgba(0,0,0,.6));}
-  .contact-map .ping{
-    position:absolute; left:50%; top:50%;
-    width:20px; height:20px; margin:-10px 0 0 -10px;
-    border-radius:50%;
-    background:rgba(156,17,46,.4);
-    animation:mapPing 2.4s ease-out infinite;
-  }
-  @keyframes mapPing{
-    0%{transform:scale(.6); opacity:.9;}
-    100%{transform:scale(4.5); opacity:0;}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .contact-map .ping{animation:none; opacity:.5;}
+  .contact-map iframe{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    border:0;
+    filter:grayscale(20%) contrast(1.05) brightness(.92);
   }
   .contact-map .map-caption{
     position:absolute; left:1.4rem; bottom:1.4rem; right:1.4rem;
+    display:block;
     font-family:'Barlow Condensed',sans-serif;
     font-weight:600; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase;
     color:var(--ash);
-    background:rgba(12,10,10,.72);
+    text-decoration:none;
+    background:rgba(12,10,10,.82);
     padding:.5em .8em;
     border:1px solid var(--steel-line);
+    transition:color .15s, border-color .15s;
+    pointer-events:auto;
   }
+  .contact-map .map-caption:hover{color:var(--bone); border-color:var(--maroon-hi);}
   .contact-info{
     padding:2.4rem 2.2rem;
     display:flex; flex-direction:column; gap:1.7rem;
@@ -814,13 +802,10 @@
 <section class="band alt" id="contact-content">
   <div class="wrap">
     <div class="contact-panel">
-      <a class="contact-map" href="https://maps.google.com/?q=1885+FM+3459,+Onalaska,+TX+77360" target="_blank" rel="noopener" aria-label="Get directions to O-Town Wrestling Club">
-        <div class="pin">
-          <span class="ping" aria-hidden="true"></span>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
-        </div>
-        <span class="map-caption">1885 FM 3459, Onalaska, TX 77360</span>
-      </a>
+      <div class="contact-map">
+        <iframe src="https://maps.google.com/maps?q=1885+FM+3459,+Onalaska,+TX+77360&z=15&output=embed" title="Map to O-Town Wrestling Club" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a class="map-caption" href="https://maps.google.com/?q=1885+FM+3459,+Onalaska,+TX+77360" target="_blank" rel="noopener">1885 FM 3459, Onalaska, TX 77360 &middot; Get Directions</a>
+      </div>
       <div class="contact-info">
         <div class="contact-row">
           <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
