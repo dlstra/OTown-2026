@@ -2,8 +2,8 @@
 <title>O-Town Mat Cats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Metal+Mania&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Metal+Mania&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Alfa+Slab+One&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Alfa+Slab+One&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <!-- Scroll-reveal hides content until JS shows it, so gate the hiding on JS
      being alive. Without this, a script failure would blank whole sections. -->
 <script>document.documentElement.classList.add('js');</script>
@@ -234,23 +234,28 @@
     gap:2rem;
     align-items:center;
   }
+  /* Alfa Slab One carries far more weight than the old face, so it runs
+     smaller, tighter and with a thinner outline - a heavy stroke on a heavy
+     slab closes up the counters in O, U and S. */
   .hero h1{
-    font-family:'Metal Mania','Anton',sans-serif;
+    font-family:'Alfa Slab One','Anton',sans-serif;
     font-weight:400;
-    font-size:clamp(3.6rem,7.8vw,6.3rem);
-    line-height:1.2;
-    letter-spacing:.05em;
+    font-size:clamp(2.7rem,5.9vw,4.8rem);
+    line-height:1.08;
+    letter-spacing:.01em;
     color:var(--bone);
   }
   .hero h1 .silver{color:var(--bone); display:block;}
   .hero h1 .accent{
-    color:var(--maroon);
+    /* the darkest logo maroon went muddy once the face got this heavy, so the
+       fill steps up to the mid logo maroon and the outline carries the edge */
+    color:var(--maroon-hi);
     display:block;
-    margin-top:.18em;
-    letter-spacing:.09em;
-    word-spacing:-.3em;
-    text-shadow:0 0 34px rgba(70,2,14,.7);
-    -webkit-text-stroke:3.2px var(--steel-2);
+    margin-top:.1em;
+    letter-spacing:.02em;
+    word-spacing:-.06em;
+    text-shadow:0 0 40px rgba(125,14,37,.55);
+    -webkit-text-stroke:2.4px var(--steel-2);
     paint-order:stroke fill;
   }
   .hero .sub{
