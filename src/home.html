@@ -544,6 +544,62 @@
     transition:background .15s, border-color .15s;
   }
   .gallery-pause-btn:hover{background:var(--ink-raised); border-color:var(--maroon-hi);}
+  /* ---------- SEASON HIGHLIGHTS VIDEO ---------- */
+  .vid-frame{
+    position:relative;
+    max-width:860px;
+    margin:0 auto 2.4rem;
+    aspect-ratio:16 / 9;
+    overflow:hidden;
+    border:1px solid var(--steel-line);
+    background:
+      repeating-linear-gradient(-24deg, rgba(70,2,14,.20) 0 2px, transparent 2px 30px),
+      linear-gradient(150deg,var(--ink-raised),var(--void));
+  }
+  /* claw rake, same device the photo tiles use, so the empty state matches */
+  .vid-frame::before{
+    content:"";
+    position:absolute; top:-12%; right:-4%;
+    width:46%; height:124%;
+    background:
+      linear-gradient(101deg, transparent 46%, rgba(156,17,46,.26) 47%, rgba(156,17,46,.26) 49%, transparent 50%),
+      linear-gradient(101deg, transparent 58%, rgba(132,122,116,.18) 59%, rgba(132,122,116,.18) 60.4%, transparent 61.4%);
+    pointer-events:none;
+  }
+  .vid-inner{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:.9rem;
+    text-align:center;
+    padding:1.5rem;
+  }
+  .vid-play{
+    width:64px; height:64px;
+    border:2px solid var(--crimson);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .vid-play::after{
+    content:"";
+    border-style:solid;
+    border-width:11px 0 11px 18px;
+    border-color:transparent transparent transparent var(--crimson);
+    margin-left:5px;   /* optical centring of the triangle in the circle */
+  }
+  .vid-title{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(1.2rem,2.6vw,1.7rem);
+    letter-spacing:.02em;
+    color:var(--bone);
+  }
+  .vid-sub{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600; font-size:.75rem;
+    letter-spacing:.16em; text-transform:uppercase;
+    color:var(--rose);
+  }
+
   .gallery-viewport{
     position:relative;
     overflow:hidden;
@@ -579,7 +635,9 @@
       repeating-linear-gradient(-24deg, rgba(70,2,14,.22) 0 2px, transparent 2px 26px),
       linear-gradient(160deg,var(--ink-raised),var(--void));
     border:1px solid var(--steel-line);
-    display:flex; flex-direction:column; justify-content:flex-end;
+    /* only "Photos coming soon" sits in here now, so centre it rather than
+       hanging it off the bottom where a title used to sit above it */
+    display:flex; align-items:center; justify-content:center;
     padding:1.4rem;
     position:relative;
     overflow:hidden;
@@ -1300,18 +1358,32 @@
       </div>
       <button class="gallery-pause-btn" id="galPauseBtn" type="button">&#9208; Pause</button>
     </div>
+
+    <!-- Season highlights video. To go live, replace the whole .vid-frame div
+         with a 16:9 wrapper holding the embed, e.g.
+           <div class="vid-frame"><iframe src="https://www.youtube.com/embed/VIDEO_ID"
+             title="O-Town Mat Cats season highlights" allowfullscreen
+             style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div> -->
+    <div class="vid-frame reveal" aria-label="Season highlights video, coming soon">
+      <div class="vid-inner">
+        <span class="vid-play" aria-hidden="true"></span>
+        <span class="vid-title">Season Highlights</span>
+        <span class="vid-sub">Video coming soon</span>
+      </div>
+    </div>
+
     <div class="gallery-viewport">
       <div class="gallery-track" id="galTrack">
-        <div class="gtile"><span class="idx">01</span><span class="tag">Practice</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile"><span class="idx">02</span><span class="tag">Tournaments</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile"><span class="idx">03</span><span class="tag">Team Bonding</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile"><span class="idx">04</span><span class="tag">Bracket Day</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile"><span class="idx">05</span><span class="tag">Senior Night</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile" aria-hidden="true"><span class="idx">01</span><span class="tag">Practice</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile" aria-hidden="true"><span class="idx">02</span><span class="tag">Tournaments</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile" aria-hidden="true"><span class="idx">03</span><span class="tag">Team Bonding</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile" aria-hidden="true"><span class="idx">04</span><span class="tag">Bracket Day</span><span class="sub">Photos coming soon</span></div>
-        <div class="gtile" aria-hidden="true"><span class="idx">05</span><span class="tag">Senior Night</span><span class="sub">Photos coming soon</span></div>
+        <div class="gtile"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile" aria-hidden="true"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile" aria-hidden="true"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile" aria-hidden="true"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile" aria-hidden="true"><span class="sub">Photos coming soon</span></div>
+        <div class="gtile" aria-hidden="true"><span class="sub">Photos coming soon</span></div>
       </div>
     </div>
   </div>
