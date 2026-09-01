@@ -22,7 +22,9 @@ HEAD = m.group(1)
 REGISTER_HREF = "https://docs.google.com/forms/d/e/1FAIpQLScOa7TmpL-l7saAUh3yhFERfoQ56vIgvfBP2k9fAFf3bHbGrg/viewform"
 USAW_HREF     = "https://www.usawmembership.com/login"
 STORE_HREF    = ""   # team store - paste the shop URL here
-SPONSOR_HREF  = ""   # sponsor sign-up form - needs the public /viewform link
+SPONSOR_HREF  = "https://docs.google.com/forms/d/e/1FAIpQLSdJ6Hfl9D3JLc9kIt5DNIEoDrtCxOUjEuzjYAUBcYPKpY8NPg/viewform"
+# NB: that form has a File Upload question, so Google forces responders to sign in
+# to a Google account. Removing the upload question is what lifts that.
 PAYMENT_HREF  = ""   # dues / payment portal
 
 
