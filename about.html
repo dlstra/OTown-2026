@@ -1,5 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
-<title>O-Town Mat Cats</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us &middot; O-Town Mat Cats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Alfa+Slab+One&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -34,6 +38,9 @@
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth; background:#0c0a0a;}
+  /* stop the sticky header covering the heading you just jumped to */
+  section[id], .hb-sec{scroll-margin-top:92px;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
   body{
     margin:0;
     background:var(--void);
@@ -201,6 +208,16 @@
     box-shadow:inset 0 0 0 1px var(--steel-3);
   }
   .cta-short{display:none;}
+  /* stands in for a button whose destination doesn't exist yet - reads as
+     "not ready" rather than inviting a click that goes nowhere */
+  .btn.is-pending{
+    background:transparent;
+    color:var(--steel-2);
+    border-color:transparent;
+    box-shadow:inset 0 0 0 1px var(--steel-3);
+    cursor:default;
+  }
+  .btn.is-pending:hover{background:transparent; transform:none;}
   .btn.ghost:hover, .btn.ghost:focus-visible{
     background:var(--ink);
     color:var(--bone);
@@ -813,6 +830,12 @@
     transition:transform .2s ease;
   }
   .cta-card:hover .icon{transform:translateY(-2px) scale(1.06);}
+  /* a card with nowhere to go yet - sits back rather than inviting a click */
+  .cta-card.is-pending-card{opacity:.55;}
+  .cta-card.is-pending-card:hover{transform:none; border-color:var(--steel-line); background-color:var(--ink);}
+  .cta-card.is-pending-card:hover::after{transform:scaleX(0);}
+  .cta-card.is-pending-card:hover .icon{transform:none;}
+  .cta-card.is-pending-card .icon{color:var(--steel-2);}
   .cta-card:nth-child(2) .icon{color:var(--maroon-3);}
   .cta-card:nth-child(3) .icon{color:var(--steel-2);}
   .cta-card:nth-child(2):hover{border-color:var(--maroon-3);}
@@ -956,6 +979,80 @@
   }
   .newcomer p{color:var(--ash); font-size:.97rem; line-height:1.55;}
 
+  /* ---------- HANDBOOK ---------- */
+  .hb-layout{display:grid; grid-template-columns:220px 1fr; gap:3rem; align-items:start;}
+  @media (max-width:900px){ .hb-layout{grid-template-columns:1fr; gap:2rem;} }
+  .hb-toc{position:sticky; top:100px;}
+  @media (max-width:900px){
+    .hb-toc{position:static; border:1px solid var(--steel-line); padding:1.2rem 1.4rem; background:var(--ink);}
+  }
+  .hb-toc h4{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--rose); margin-bottom:.9rem;
+  }
+  .hb-toc a{
+    display:block; padding:.35rem 0;
+    color:var(--ash); font-size:.94rem; text-decoration:none;
+    border-left:2px solid transparent; padding-left:.7rem;
+    transition:color .15s, border-color .15s;
+  }
+  .hb-toc a:hover, .hb-toc a:focus-visible{color:var(--bone); border-left-color:var(--maroon-hi);}
+
+  .hb-sec{margin-bottom:3rem; scroll-margin-top:100px;}
+  .hb-sec > h2{
+    font-family:'Anton',sans-serif;
+    font-size:1.5rem; letter-spacing:.01em;
+    color:var(--bone); margin-bottom:.4rem;
+  }
+  .hb-sec > h2 .n{color:var(--rose); font-size:.8em; margin-right:.5rem;}
+  .hb-sec h3{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700; font-size:1rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--bone-2); margin:1.6rem 0 .5rem;
+  }
+  .hb-sec p{color:var(--ash); line-height:1.7; margin-bottom:.9rem; max-width:68ch;}
+  .hb-sec p strong{color:var(--bone-2);}
+  .hb-sec ul{list-style:none; margin:0 0 1rem; padding:0; max-width:68ch;}
+  .hb-sec ul li{
+    position:relative; padding-left:1.3rem; margin-bottom:.5rem;
+    color:var(--ash); line-height:1.65;
+  }
+  .hb-sec ul li::before{
+    content:""; position:absolute; left:0; top:.62em;
+    width:6px; height:6px; background:var(--maroon-3);
+  }
+  .hb-sec ul li strong{color:var(--bone-2);}
+
+  /* term / meaning rows, used for scoring and glossary */
+  .hb-rows{border-top:1px solid var(--steel-line); max-width:68ch; margin-bottom:1rem;}
+  .hb-row{
+    display:grid; grid-template-columns:170px 1fr; gap:1rem;
+    padding:.75rem 0; border-bottom:1px solid var(--steel-line);
+  }
+  @media (max-width:600px){ .hb-row{grid-template-columns:1fr; gap:.2rem;} }
+  .hb-row dt{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700; font-size:.88rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--bone);
+  }
+  .hb-row dd{margin:0; color:var(--ash); line-height:1.6;}
+
+  .hb-note{
+    padding:1.3rem 1.5rem; margin:1.4rem 0;
+    background:var(--ink-raised);
+    border:1px solid var(--maroon-dim);
+    border-left:3px solid var(--maroon-3);
+    max-width:68ch;
+  }
+  .hb-note strong{
+    display:block; color:var(--bone);
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    font-size:.85rem; margin-bottom:.4rem;
+  }
+  .hb-note p{margin:0; color:var(--ash); line-height:1.65;}
+
   /* ---------- SCROLL REVEAL ---------- */
   .js .reveal{
     opacity:0;
@@ -1076,6 +1173,8 @@
     .hero-facts{gap:0 1.1rem;}
   }
 </style>
+</head>
+<body>
 <div class="bg-texture" aria-hidden="true"></div>
 
 <header class="nav">
@@ -1128,7 +1227,7 @@
     <div class="eyebrow label">O-Town Wrestling Club</div>
     <h1>ABOUT <span class="accent">US</span></h1>
     <p class="deck">Where the Mat Cats are made &mdash; our coaching staff, our story, and what we&rsquo;re building in Onalaska.</p>
-    <a class="btn" href="#" style="margin-top:1.8rem;">
+    <a class="btn" href="handbook.html" style="margin-top:1.8rem;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="17" height="17"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
       View Club Handbook
     </a>
@@ -1186,6 +1285,7 @@
       <div>
         <h4>Club</h4>
         <a href="about.html">About Us</a>
+        <a href="handbook.html">Club Handbook</a>
         <a href="index.html#schedule">Practice Schedule</a>
         <a href="sponsors.html">Sponsors</a>
         <a href="store.html">Team Store</a>
@@ -1220,3 +1320,5 @@
   });
 })();
 </script>
+</body>
+</html>
