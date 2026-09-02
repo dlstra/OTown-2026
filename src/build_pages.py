@@ -25,7 +25,8 @@ STORE_HREF    = ""   # team store - paste the shop URL here
 SPONSOR_HREF  = "https://docs.google.com/forms/d/e/1FAIpQLSdJ6Hfl9D3JLc9kIt5DNIEoDrtCxOUjEuzjYAUBcYPKpY8NPg/viewform"
 # NB: that form has a File Upload question, so Google forces responders to sign in
 # to a Google account. Removing the upload question is what lifts that.
-PAYMENT_HREF  = ""   # dues / payment portal
+# PAYMENT: the Make A Payment card lives in home.html and carries its URL
+# directly, so there is no constant for it here - edit it there.
 
 
 def pending_link(href, label, pending_label, style=""):
