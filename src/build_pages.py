@@ -149,7 +149,7 @@ ABOUT_SECTION = '''<section class="band" id="about-content">
     <div class="section-head">
       <div class="eyebrow label">Coaching Staff</div>
       <h2>THE CLAWS BEHIND <span class="accent">THE CATS</span></h2>
-      <p class="deck">The coaches in the room every Wednesday and Thursday night, and the standard they hold the Mat Cats to.</p>
+      <p class="deck">The coaches in the room every Tuesday and Wednesday night, and the standard they hold the Mat Cats to.</p>
     </div>
     <div class="coach-grid">
       <div class="coach-card reveal">
@@ -243,11 +243,12 @@ HANDBOOK_SECTION = '''<section class="band" id="handbook-content">
 
       <section class="hb-sec reveal" id="hb-2">
         <h2><span class="n">02</span>SEASON &amp; PRACTICE</h2>
-        <p>The folkstyle season runs from <strong>September through April</strong>. Practices are held on <strong>Wednesdays and Thursdays</strong> at the club mat room, 1885 FM 3459, Onalaska, TX 77360.</p>
+        <p>The folkstyle season runs from <strong>September through March</strong>. Practices are held on <strong>Tuesdays and Wednesdays</strong> at the club mat room, 1885 FM 3459, Onalaska, TX 77360. The two groups train on separate nights, so each one has the room to itself.</p>
         <dl class="hb-rows">
-          <div class="hb-row"><dt>Youth</dt><dd>6:00 &ndash; 7:30 PM, Wednesday &amp; Thursday</dd></div>
-          <div class="hb-row"><dt>Jr / Sr High</dt><dd>4:00 &ndash; 5:30 PM, Wednesday &amp; Thursday</dd></div>
+          <div class="hb-row"><dt>Jr / Sr High</dt><dd>6:00 &ndash; 7:30 PM, Tuesday</dd></div>
+          <div class="hb-row"><dt>Youth</dt><dd>6:00 &ndash; 7:30 PM, Wednesday</dd></div>
         </dl>
+        <p>September ran on a different rotation while the school sports calendar wound down &mdash; both groups on the same night, Jr/Sr High at 4:00 &ndash; 5:30 PM and Youth at 6:00 &ndash; 7:30 PM. The Tuesday and Wednesday split above is the schedule from October on.</p>
         <p>The live practice calendar on the <a href="{{HOME_URL}}#schedule" style="color:var(--rose);">schedule page</a> is the authority on dates. Cancellations &mdash; weather, holidays, facility closures &mdash; are marked in red there as soon as we know about them, so check it before you drive out if you are unsure.</p>
         <h3>Attendance</h3>
         <p>Wrestling is a skill sport built by repetition. Kids who come consistently improve quickly; kids who come occasionally tend to stall out and get frustrated, which is the most common reason a first-year wrestler quits. We are not going to bench anyone for missing practice, but we will be honest with you: consistency is most of the result.</p>

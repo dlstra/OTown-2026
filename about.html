@@ -836,6 +836,12 @@
     color:var(--steel-2);
   }
   .cal-event.cancelled .cal-event-time{text-decoration:line-through;}
+  .cal-event.note{
+    background:rgba(132,122,116,.12);
+    border-left-color:var(--steel-2);
+    color:var(--ash);
+    font-style:italic;
+  }
   .cal-event .cal-event-tag{
     display:block;
     color:var(--rose);
@@ -853,6 +859,7 @@
   .cal-legend span{display:inline-flex; align-items:center; gap:.5em;}
   .cal-legend .dot{width:9px; height:9px; border-radius:50%; background:var(--maroon-hi); display:inline-block;}
   .cal-legend .dot.cancelled{background:var(--maroon-3);}
+  .cal-legend .dot.note{background:var(--steel-2);}
 
   /* ---------- CTA ROW ---------- */
   .cta-grid{
@@ -1299,7 +1306,7 @@
     <div class="section-head">
       <div class="eyebrow label">Coaching Staff</div>
       <h2>THE CLAWS BEHIND <span class="accent">THE CATS</span></h2>
-      <p class="deck">The coaches in the room every Wednesday and Thursday night, and the standard they hold the Mat Cats to.</p>
+      <p class="deck">The coaches in the room every Tuesday and Wednesday night, and the standard they hold the Mat Cats to.</p>
     </div>
     <div class="coach-grid">
       <div class="coach-card reveal">
