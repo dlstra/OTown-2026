@@ -395,6 +395,57 @@
     color:var(--ash);
   }
 
+  /* ---------- SPONSOR CARDS (real sponsors, above the open spots) ---------- */
+  .sponsor-list{display:grid; gap:1.4rem;}
+  .sponsor-card{
+    display:grid;
+    grid-template-columns:minmax(0,300px) 1fr;
+    align-items:center;
+    gap:2rem;
+    padding:1.6rem;
+    background:
+      repeating-linear-gradient(-24deg, rgba(70,2,14,.14) 0 2px, transparent 2px 26px),
+      var(--ink-raised);
+    border:1px solid var(--steel-line);
+    border-left:3px solid var(--maroon-3);
+    clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+    transition:border-color .2s ease;
+  }
+  .sponsor-card:hover{border-color:var(--maroon-3);}
+  .sponsor-card a{color:inherit; text-decoration:none;}
+  .sponsor-card a:focus-visible{outline:2px solid var(--rose); outline-offset:3px;}
+  .sponsor-body h3 a:hover{color:var(--rose);}
+  /* logos arrive as white-background artwork, so give them a white plate
+     rather than dropping them straight onto the dark card */
+  .sponsor-logo{
+    background:#fff;
+    padding:1.2rem 1.4rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .sponsor-logo img{display:block; width:100%; height:auto; max-height:150px; object-fit:contain;}
+  .sponsor-body h3{
+    font-family:'Anton',sans-serif;
+    font-size:1.6rem;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:var(--bone);
+  }
+  .sponsor-body p{color:var(--bone-2); font-size:.95rem; line-height:1.6; margin-top:.6rem;}
+  .sponsor-links{display:flex; flex-wrap:wrap; gap:.6rem 1.6rem; margin-top:1rem;}
+  .sponsor-card .sponsor-link{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700; font-size:.95rem;
+    letter-spacing:.08em; text-transform:uppercase;
+    color:var(--rose);
+  }
+  .sponsor-card .sponsor-link:hover{color:var(--bone);}
+  .sponsor-link svg{width:15px; height:15px;}
+  @media (max-width:640px){
+    .sponsor-card{grid-template-columns:1fr; gap:1.3rem; padding:1.3rem;}
+    .sponsor-logo{max-width:340px; width:100%; margin:0 auto;}
+  }
+
   /* ---------- PLACEHOLDER INFO GRID (Sponsors / Store) ---------- */
   .info-grid{
     display:grid;

@@ -395,6 +395,57 @@
     color:var(--ash);
   }
 
+  /* ---------- SPONSOR CARDS (real sponsors, above the open spots) ---------- */
+  .sponsor-list{display:grid; gap:1.4rem;}
+  .sponsor-card{
+    display:grid;
+    grid-template-columns:minmax(0,300px) 1fr;
+    align-items:center;
+    gap:2rem;
+    padding:1.6rem;
+    background:
+      repeating-linear-gradient(-24deg, rgba(70,2,14,.14) 0 2px, transparent 2px 26px),
+      var(--ink-raised);
+    border:1px solid var(--steel-line);
+    border-left:3px solid var(--maroon-3);
+    clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+    transition:border-color .2s ease;
+  }
+  .sponsor-card:hover{border-color:var(--maroon-3);}
+  .sponsor-card a{color:inherit; text-decoration:none;}
+  .sponsor-card a:focus-visible{outline:2px solid var(--rose); outline-offset:3px;}
+  .sponsor-body h3 a:hover{color:var(--rose);}
+  /* logos arrive as white-background artwork, so give them a white plate
+     rather than dropping them straight onto the dark card */
+  .sponsor-logo{
+    background:#fff;
+    padding:1.2rem 1.4rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .sponsor-logo img{display:block; width:100%; height:auto; max-height:150px; object-fit:contain;}
+  .sponsor-body h3{
+    font-family:'Anton',sans-serif;
+    font-size:1.6rem;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:var(--bone);
+  }
+  .sponsor-body p{color:var(--bone-2); font-size:.95rem; line-height:1.6; margin-top:.6rem;}
+  .sponsor-links{display:flex; flex-wrap:wrap; gap:.6rem 1.6rem; margin-top:1rem;}
+  .sponsor-card .sponsor-link{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700; font-size:.95rem;
+    letter-spacing:.08em; text-transform:uppercase;
+    color:var(--rose);
+  }
+  .sponsor-card .sponsor-link:hover{color:var(--bone);}
+  .sponsor-link svg{width:15px; height:15px;}
+  @media (max-width:640px){
+    .sponsor-card{grid-template-columns:1fr; gap:1.3rem; padding:1.3rem;}
+    .sponsor-logo{max-width:340px; width:100%; margin:0 auto;}
+  }
+
   /* ---------- PLACEHOLDER INFO GRID (Sponsors / Store) ---------- */
   .info-grid{
     display:grid;
@@ -1298,7 +1349,35 @@
 
 <div class="claw-divider" role="presentation"><svg class="rake-svg" viewBox="0 0 64 46" width="128" height="42" aria-hidden="true"><path class="pA" transform="translate(4,13.0)" d="M-0.15,0.0 L-0.53,1.43 L-1.12,2.86 L-1.25,4.29 L-1.27,5.71 L-1.18,7.14 L-1.56,8.57 L-1.58,10.0 L-1.4,11.43 L-1.35,12.86 L-1.12,14.29 L-0.87,15.71 L-0.93,17.14 L-0.78,18.57 L-0.15,20.0 L0.15,20.0 L1.19,18.57 L1.71,17.14 L2.0,15.71 L2.53,14.29 L2.97,12.86 L3.15,11.43 L3.38,10.0 L3.32,8.57 L2.8,7.14 L2.68,5.71 L2.37,4.29 L1.9,2.86 L0.93,1.43 L0.15,0.0 Z"/><path class="pB" transform="translate(18,6.0)" d="M-0.15,0.0 L-1.08,2.43 L-0.83,4.86 L-0.89,7.29 L-1.54,9.71 L-1.09,12.14 L-1.07,14.57 L-1.39,17.0 L-1.2,19.43 L-1.51,21.86 L-1.08,24.29 L-1.45,26.71 L-0.94,29.14 L-0.86,31.57 L-0.15,34.0 L0.15,34.0 L1.53,31.57 L2.24,29.14 L3.32,26.71 L3.43,24.29 L4.22,21.86 L4.13,19.43 L4.39,17.0 L3.99,14.57 L3.79,12.14 L3.89,9.71 L2.76,7.29 L2.13,4.86 L1.75,2.43 L0.15,0.0 Z"/><path class="pC" transform="translate(32,0.0)" d="M-0.15,0.0 L-1.4,3.29 L-1.9,6.57 L-2.21,9.86 L-1.96,13.14 L-2.43,16.43 L-2.42,19.71 L-2.52,23.0 L-2.25,26.29 L-2.19,29.57 L-2.18,32.86 L-1.81,36.14 L-1.61,39.43 L-0.86,42.71 L-0.15,46.0 L0.15,46.0 L1.17,42.71 L2.22,39.43 L2.68,36.14 L3.27,32.86 L3.45,29.57 L3.61,26.29 L3.92,23.0 L3.79,19.71 L3.69,16.43 L3.06,13.14 L3.08,9.86 L2.51,6.57 L1.71,3.29 L0.15,0.0 Z"/><path class="pB" transform="translate(46,6.0)" d="M-0.15,0.0 L-1.6,2.43 L-2.55,4.86 L-2.85,7.29 L-3.89,9.71 L-3.8,12.14 L-4.32,14.57 L-4.06,17.0 L-4.37,19.43 L-3.77,21.86 L-3.71,24.29 L-3.18,26.71 L-2.51,29.14 L-1.44,31.57 L-0.15,34.0 L0.15,34.0 L0.77,31.57 L1.21,29.14 L1.31,26.71 L1.37,24.29 L1.07,21.86 L1.45,19.43 L1.06,17.0 L1.4,14.57 L1.1,12.14 L1.54,9.71 L0.98,7.29 L1.25,4.86 L0.93,2.43 L0.15,0.0 Z"/><path class="pA" transform="translate(60,13.0)" d="M-0.15,0.0 L-1.06,1.43 L-2.04,2.86 L-2.5,4.29 L-2.52,5.71 L-3.19,7.14 L-3.22,8.57 L-2.93,10.0 L-3.41,11.43 L-2.82,12.86 L-2.57,14.29 L-2.25,15.71 L-1.84,17.14 L-0.91,18.57 L-0.15,20.0 L0.15,20.0 L0.51,18.57 L1.06,17.14 L1.13,15.71 L1.16,14.29 L1.2,12.86 L1.66,11.43 L1.13,10.0 L1.47,8.57 L1.57,7.14 L1.11,5.71 L1.38,4.29 L1.26,2.86 L0.66,1.43 L0.15,0.0 Z"/></svg></div>
 
-<section class="band" id="sponsors-content">
+<section class="band" id="our-sponsors">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow label">Founding Sponsors</div>
+      <h2>THANK YOU TO <span class="accent">OUR SPONSORS</span></h2>
+      <p class="deck">These partners are backing the Mat Cats in our very first season.</p>
+    </div>
+    <div class="sponsor-list">
+      <div class="sponsor-card reveal">
+        <a class="sponsor-logo" href="https://oxleyenergy.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/sponsors/oxley-energy.webp" alt="" width="800" height="413" loading="lazy"></a>
+        <div class="sponsor-body">
+          <h3><a href="https://oxleyenergy.com" target="_blank" rel="noopener">Oxley Energy</a></h3>
+          <p>Since its founding, Oxley Energy set out to live its vision of empowering community businesses, homes and lives as we help provide the energy that sustains us all. We value and appreciate the partners and royalty owners who participate in bringing this vision to reality.</p>
+          <div class="sponsor-links"><a class="sponsor-link" href="https://oxleyenergy.com" target="_blank" rel="noopener">oxleyenergy.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </div>
+      </div>
+      <div class="sponsor-card reveal">
+        <a class="sponsor-logo" href="https://cccblacktopping.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/sponsors/ccc-blacktopping.webp" alt="" width="553" height="553" loading="lazy"></a>
+        <div class="sponsor-body">
+          <h3><a href="https://cccblacktopping.com" target="_blank" rel="noopener">CCC Blacktopping</a></h3>
+          <p>CCC Blacktopping delivers durable, long-lasting pavement solutions for homes, businesses, and communities. From smooth asphalt driveways, parking lots, and private roads to cost-effective chip and seal surfaces for subdivisions and rural roads, we build surfaces that perform. Our seal coating services keep existing asphalt looking fresh and protected from weather, oil, and wear, extending pavement life and preventing costly repairs down the road.</p>
+          <div class="sponsor-links"><a class="sponsor-link" href="https://cccblacktopping.com" target="_blank" rel="noopener">cccblacktopping.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><a class="sponsor-link" href="https://www.facebook.com/p/CCC-Blacktopping-LLC-100082906043878/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.5v3.6h2.8V22H14v-9.9h2.8l.4-3.6H14Z"/></svg> Facebook</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="sponsors-content">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow label">Founding Season</div>
@@ -1306,16 +1385,6 @@
       <p class="deck">2026&ndash;27 is our first season. Sponsors who come in now get their name on the mat from day one.</p>
     </div>
     <div class="info-grid">
-      <div class="info-card reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <h3>Your Name Here</h3>
-        <p>Sponsorship spot open</p>
-      </div>
-      <div class="info-card reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <h3>Your Name Here</h3>
-        <p>Sponsorship spot open</p>
-      </div>
       <div class="info-card reveal">
         <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <h3>Your Name Here</h3>

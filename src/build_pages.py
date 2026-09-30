@@ -440,6 +440,63 @@ HANDBOOK_SECTION = '''<section class="band" id="handbook-content">
 SPONSOR_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>'
 STORE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 3 7v13a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7l-3-5Z"/><path d="M3 7h18M8 11a4 4 0 0 0 8 0"/></svg>'
 
+# ---------------------------------------------------------------------------
+# Sponsors. Add one entry per sponsor and rebuild; they render in this order.
+# Logos go in assets/sponsors/ as .webp (about 800px wide is plenty).
+# ---------------------------------------------------------------------------
+SPONSORS = [
+    {
+        "name": "Oxley Energy",
+        "url": "https://oxleyenergy.com",
+        "site": "oxleyenergy.com",
+        "logo": "assets/sponsors/oxley-energy.webp",
+        "logo_size": (800, 413),
+        "blurb": ("Since its founding, Oxley Energy set out to live its vision of "
+                  "empowering community businesses, homes and lives as we help provide "
+                  "the energy that sustains us all. We value and appreciate the partners "
+                  "and royalty owners who participate in bringing this vision to reality."),
+    },
+    {
+        "name": "CCC Blacktopping",
+        "url": "https://cccblacktopping.com",
+        "site": "cccblacktopping.com",
+        "facebook": "https://www.facebook.com/p/CCC-Blacktopping-LLC-100082906043878/",
+        "logo": "assets/sponsors/ccc-blacktopping.webp",
+        "logo_size": (553, 553),
+        "blurb": ("CCC Blacktopping delivers durable, long-lasting pavement solutions for "
+                  "homes, businesses, and communities. From smooth asphalt driveways, parking "
+                  "lots, and private roads to cost-effective chip and seal surfaces for "
+                  "subdivisions and rural roads, we build surfaces that perform. Our seal "
+                  "coating services keep existing asphalt looking fresh and protected from "
+                  "weather, oil, and wear, extending pavement life and preventing costly "
+                  "repairs down the road."),
+    },
+]
+OPEN_SPOTS = 4   # "Your Name Here" cards shown after the real sponsors
+
+EXTERNAL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
+FACEBOOK_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.5v3.6h2.8V22H14v-9.9h2.8l.4-3.6H14Z"/></svg>'
+
+def real_sponsor_cards(sponsors):
+    # The card is a plain block, not one big link, so a sponsor can carry both
+    # a website and a Facebook link (anchors can't nest).
+    cards = []
+    for s in sponsors:
+        w, h = s["logo_size"]
+        link = f'href="{s["url"]}" target="_blank" rel="noopener"'
+        links = [f'<a class="sponsor-link" {link}>{s["site"]} {EXTERNAL_ICON}</a>']
+        if s.get("facebook"):
+            links.append(f'<a class="sponsor-link" href="{s["facebook"]}" target="_blank" rel="noopener">{FACEBOOK_ICON} Facebook</a>')
+        cards.append(f'''      <div class="sponsor-card reveal">
+        <a class="sponsor-logo" {link} tabindex="-1" aria-hidden="true"><img src="{s["logo"]}" alt="" width="{w}" height="{h}" loading="lazy"></a>
+        <div class="sponsor-body">
+          <h3><a {link}>{s["name"]}</a></h3>
+          <p>{s["blurb"]}</p>
+          <div class="sponsor-links">{"".join(links)}</div>
+        </div>
+      </div>''')
+    return "\n".join(cards)
+
 def sponsor_cards(n):
     cards = []
     for i in range(n):
@@ -518,7 +575,20 @@ SPONSORS_PAGE = HEAD + "\n" + nav("sponsors") + f'''
 
 {DIVIDER}
 
-<section class="band" id="sponsors-content">
+<section class="band" id="our-sponsors">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow label">Founding Sponsors</div>
+      <h2>THANK YOU TO <span class="accent">OUR SPONSORS</span></h2>
+      <p class="deck">These partners are backing the Mat Cats in our very first season.</p>
+    </div>
+    <div class="sponsor-list">
+{real_sponsor_cards(SPONSORS)}
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="sponsors-content">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow label">Founding Season</div>
@@ -526,7 +596,7 @@ SPONSORS_PAGE = HEAD + "\n" + nav("sponsors") + f'''
       <p class="deck">2026&ndash;27 is our first season. Sponsors who come in now get their name on the mat from day one.</p>
     </div>
     <div class="info-grid">
-{sponsor_cards(6)}
+{sponsor_cards(OPEN_SPOTS)}
     </div>
   </div>
 </section>
