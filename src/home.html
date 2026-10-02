@@ -1499,7 +1499,16 @@
       var nextBtn = document.getElementById('calNext');
       var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       var MIN_YEAR = 2026, MIN_MONTH = 8, MAX_YEAR = 2027, MAX_MONTH = 2;
-      var cur = { year: 2026, month: 8 };
+      // Open on the visitor's current month, held inside the season so a visit
+      // in the off-season lands on the nearest end rather than an empty month.
+      function startMonth(){
+        var now = new Date();
+        var n = now.getFullYear() * 12 + now.getMonth();
+        var lo = MIN_YEAR * 12 + MIN_MONTH, hi = MAX_YEAR * 12 + MAX_MONTH;
+        n = Math.max(lo, Math.min(hi, n));
+        return { year: Math.floor(n / 12), month: n % 12 };
+      }
+      var cur = startMonth();
 
       function pad(n){ return n < 10 ? '0' + n : '' + n; }
 
